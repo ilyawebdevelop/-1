@@ -8651,9 +8651,9 @@ html {
   background-position: bottom center;
   padding-top: 36px;
   padding-bottom: 90px;
-  background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
   -webkit-background-size: auto;
-  -webkit-background-repeat-y: no-repeat;
+  -webkit-background-repeat: repeat-x;
   -webkit-background-position: bottom center;
 }
 
@@ -8970,9 +8970,9 @@ html {
   background-position: bottom center;
   padding-top: 36px;
   padding-bottom: 90px;
-  background-repeat-y: no-repeat;
+  background-repeat: repeat-x;
   -webkit-background-size: auto;
-  -webkit-background-repeat-y: no-repeat;
+  -webkit-background-repeat: repeat-x;
   -webkit-background-position: bottom center;
 }
 
