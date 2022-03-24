@@ -8314,6 +8314,7 @@ html {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
+  -webkit-align-items: end;
 }
 
 .header__chat-item a {
@@ -8651,6 +8652,9 @@ html {
   padding-top: 36px;
   padding-bottom: 90px;
   background-repeat-y: no-repeat;
+  -webkit-background-size: auto;
+  -webkit-background-repeat-y: no-repeat;
+  -webkit-background-position: bottom center;
 }
 
 .ways__title {
@@ -8967,6 +8971,9 @@ html {
   padding-top: 36px;
   padding-bottom: 90px;
   background-repeat-y: no-repeat;
+  -webkit-background-size: auto;
+  -webkit-background-repeat-y: no-repeat;
+  -webkit-background-position: bottom center;
 }
 
 .news__slider {
