@@ -7873,6 +7873,7 @@ a {
 html,
 body {
   height: 100%;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0;
@@ -8146,8 +8147,72 @@ html {
           box-shadow: none;
 }
 
+.graph-modal__btn:hover {
+  color: #fff;
+}
+
+.burger {
+  position: relative;
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border: none;
+  display: none;
+  margin-left: auto;
+}
+
+.burger__line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 100px;
+  width: 20px;
+  height: 2px;
+  background-color: #000;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.burger__line:first-child {
+  margin-top: -7px;
+}
+
+.burger__line:last-child {
+  margin-top: 7px;
+}
+
+.burger-close {
+  position: absolute;
+  right: var(--container-offset);
+  top: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  background-image: url("../img/close.svg");
+  background-position: center;
+  background-size: 14px 12px;
+  background-repeat: no-repeat;
+}
+
+.burger.main-page .burger__line {
+  background-color: #fff;
+}
+
+.header__menu-burger-close {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+}
+
 .header {
   padding: 10px 0px 0px;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
 }
 
 .header__top {
@@ -8184,18 +8249,19 @@ html {
 }
 
 .header__phone-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-left: 40px;
 }
 
 .header__phone-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header__phone-item a {
@@ -8241,9 +8307,6 @@ html {
 }
 
 .header__chat-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -8291,9 +8354,6 @@ html {
 }
 
 .header__nav-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -8313,10 +8373,91 @@ html {
   margin-right: 30px;
 }
 
+.overlay {
+  position: fixed;
+  background: #fff;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.35s, visibility 0.35s;
+  -o-transition: opacity 0.35s, visibility 0.35s;
+  transition: opacity 0.35s, visibility 0.35s;
+  overflow: hidden;
+  z-index: 777777;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+  height: 410px;
+  width: 300px;
+  padding-left: 35px;
+  padding-top: 30px;
+  padding-right: 39px;
+  overflow-y: auto;
+  z-index: 3;
+  -webkit-box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 1px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.header__menu-burger-wrapper a {
+  color: #322E45;
+}
+
+.header__menu-burger-item {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.header__menu-burger-list {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #656374;
+  padding-bottom: 10px;
+}
+
+.header__chat-burger-list {
+  margin-bottom: 15px;
+}
+
+.header__phone-burger-list {
+  margin-bottom: 15px;
+}
+
+.header__phone-burger-list .header__phone-title {
+  font-size: 13px;
+}
+
+.header__phone-burger-list .header__phone-item a {
+  font-size: 13px;
+}
+
+.header__menu-burger-close {
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+[data-animate] {
+  opacity: 0;
+  -webkit-transition: all 1.8s ease-out;
+  -o-transition: all 1.8s ease-out;
+  transition: all 1.8s ease-out;
+}
+
+[data-animate=bottom] {
+  -webkit-transform: translate3d(0, 15px, 0);
+          transform: translate3d(0, 15px, 0);
+}
+
 .intro {
   position: relative;
   z-index: 0;
   height: 640px;
+  top: 172px;
+  margin-bottom: 172px;
 }
 
 .intro__slider {
@@ -8390,6 +8531,13 @@ html {
   margin-right: 4px;
 }
 
+.intro__slide.swiper-slide-active [data-animate] {
+  opacity: 1;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
 .transport {
   z-index: 1;
   position: relative;
@@ -8408,6 +8556,10 @@ html {
 
 .transport__card-img {
   width: 100%;
+}
+
+.transport__card-icon {
+  width: 27px;
 }
 
 .transport__card-offer {
@@ -8433,6 +8585,7 @@ html {
           box-shadow: 0px 30px 40px rgba(17, 41, 102, 0.24);
   position: relative;
   z-index: 2;
+  background-color: #fff;
 }
 
 .benefits__title {
@@ -8440,7 +8593,7 @@ html {
 }
 
 .benefits__list {
-  padding: 47px;
+  padding: 20px 47px 20px 47px;
 }
 
 .benefits__item {
@@ -8861,7 +9014,7 @@ html {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 189px;
+  height: 140px;
 }
 
 .news__slide-title {
@@ -9208,11 +9361,6 @@ html {
 
 .graph-modal__input-date {
   width: 185px;
-}
-
-.graph-modal__input-time {
-  width: 185px;
-  margin-bottom: 30px;
 }
 
 .graph-modal__close {
@@ -14858,6 +15006,94 @@ html {
   }
 }
 
+@media (max-width: 1199px) {
+  h1 {
+    font-size: 60px !important;
+    line-height: 75px;
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+
+  .header__btn {
+    width: 149px;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .header__phone-list {
+    padding-left: 0;
+  }
+
+  .header__phone-item a {
+    font-size: 14px;
+  }
+
+  .header__nav-list {
+    padding-right: 0;
+  }
+
+  .header__nav-item a {
+    font-size: 16px;
+  }
+
+  .header__nav-item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .intro__item {
+    font-size: 18px;
+  }
+
+  .transport__card-img img {
+    max-height: 100%;
+  }
+
+  .transport__card-img {
+    height: 162px;
+  }
+
+  .transport__card-offer {
+    padding: 20px;
+  }
+
+  .transport__card {
+    height: 162px;
+  }
+
+  .benefits__list {
+    padding: 0px 10px 0px 0;
+  }
+
+  .services__item {
+    padding: 20px;
+  }
+
+  .reviews__slider-container {
+    width: 940px;
+  }
+
+  .reviews__slider {
+    width: 89%;
+  }
+
+  .news__slider-container {
+    width: 940px;
+    padding-left: 11px;
+  }
+
+  .news__slider {
+    width: 89%;
+  }
+
+  .contacts__phone-item a {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 1024px) {
   .graph-modal__container {
     width: 90%;
@@ -14896,6 +15132,153 @@ html {
   }
 }
 
+@media (max-width: 991px) {
+  .header__bottom {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .intro__list {
+    margin-bottom: 20px;
+  }
+
+  .intro__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .intro {
+    top: 82px;
+    margin-bottom: 82px;
+  }
+
+  .transport__card {
+    margin-bottom: 20px;
+  }
+
+  .transport {
+    margin-bottom: -44px;
+  }
+
+  .benefits__wrapper {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .benefits__list {
+    margin-top: 40px;
+  }
+
+  .benefits__item:last-child {
+    margin-bottom: 20px;
+  }
+
+  .ways {
+    top: -95px;
+    margin-bottom: -95px;
+  }
+
+  .ways__bg-rounded {
+    height: 100px;
+  }
+
+  .pr-5 {
+    padding-right: 10.5px;
+  }
+
+  .pl-5 {
+    padding-left: 10.5px;
+  }
+
+  .services__item {
+    margin-bottom: 20px;
+    padding: 40px;
+  }
+
+  .reviews__slider-container {
+    width: 700px;
+  }
+
+  .reviews__slide-wrapper.swiper-slide-next .reviews__text {
+    max-height: 100px;
+  }
+
+  .reviews__slide-wrapper.swiper-slide-next .reviews__btn {
+    display: none;
+  }
+
+  .reviews__slide-wrapper.swiper-slide-next {
+    width: 400px !important;
+  }
+
+  .reviews__slide-wrapper {
+    width: 500px !important;
+  }
+
+  .reviews__person img:nth-child(1) {
+    width: 62px;
+  }
+
+  .reviews__text {
+    max-height: 100%;
+  }
+
+  .reviews__btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .news__slider-container {
+    width: 700px;
+  }
+
+  .news__slide-link {
+    display: block;
+  }
+
+  .news__slide-text {
+    display: block;
+  }
+
+  .news__slide.swiper-slide-next .news__slide-text {
+    display: none;
+  }
+
+  .news__slide.swiper-slide-next {
+    width: 300px !important;
+  }
+
+  .news__slide {
+    width: 460px !important;
+  }
+
+  .news__bg-rounded {
+    height: 100px;
+  }
+
+  .news {
+    top: -80px;
+    margin-bottom: -80px;
+  }
+
+  .m-30 {
+    margin-top: 30px;
+    width: 100%;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+  }
+
+  .footer__politics {
+    font-size: 12px;
+  }
+
+  .footer__develop {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 767.98px) {
   .table-responsive-md {
     overflow-x: auto;
@@ -14925,6 +15308,63 @@ html {
 
   .modal-fullscreen-md-down .modal-footer {
     border-radius: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  h3 {
+    font-size: 16px !important;
+  }
+
+  .transport__card-title {
+    font-size: 16px;
+  }
+
+  .transport__card {
+    height: 125px;
+  }
+
+  .margin-md-auto {
+    margin: auto;
+  }
+
+  .benefits__item-title {
+    font-size: 16px;
+  }
+
+  .services__item {
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .reviews__slider-container {
+    width: 500px;
+  }
+
+  .reviews__slide-wrapper {
+    width: 100% !important;
+  }
+
+  .news__slider-container {
+    width: 500px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .news__slide-offer {
+    height: 180px;
+  }
+
+  .news__slide {
+    width: 100% !important;
+  }
+
+  .footer__copyright {
+    margin-bottom: 5px;
+  }
+
+  .footer__politics {
+    margin-bottom: 5px;
   }
 }
 
@@ -14961,9 +15401,167 @@ html {
 }
 
 @media (max-width: 575px) {
+  html,
+  body {
+    font-size: 13px;
+  }
+
+  h1 {
+    font-size: 34px !important;
+    line-height: 44px;
+    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  .ways__btn {
+    margin-top: 0;
+  }
+
+  .contacts__btn {
+    font-size: 14px;
+    width: 138px;
+  }
+
+  .intro__slide {
+    padding: 44px 0;
+  }
+
+  .intro__item {
+    font-size: 17px;
+    font-weight: 400;
+    max-width: 260px;
+  }
+
+  .intro__pagination {
+    bottom: 55px;
+  }
+
+  .intro {
+    height: 540px;
+  }
+
+  .transport__card-icon {
+    width: 44px;
+  }
+
+  .transport__card-offer {
+    width: 40%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+
+  .transport__card {
+    height: 162px;
+  }
+
+  .transport {
+    top: -32px;
+    margin-bottom: 0;
+  }
+
+  .benefits__title {
+    margin-bottom: 25px;
+  }
+
+  .benefits__list {
+    margin-top: 20px;
+  }
+
+  .benefits__item-descr {
+    font-size: 13px;
+  }
+
+  .benefits__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .ways__title {
+    margin-bottom: 25px;
+  }
+
+  .ways__form input,
+  .ways__form textarea {
+    font-size: 14px;
+  }
+
+  .ways__text {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .services__title {
+    margin-bottom: 25px;
+  }
+
+  .services__item-title {
+    text-align: center;
+  }
+
+  .services__item-text {
+    text-align: justify;
+  }
+
+  .services__item img {
+    margin: auto;
+  }
+
+  .services__item {
+    min-height: 260px;
+  }
+
+  .reviews__title {
+    margin-bottom: 25px;
+  }
+
+  .reviews__slider-container {
+    width: 300px;
+  }
+
+  .reviews__slide {
+    padding-bottom: 20px;
+  }
+
+  .reviews {
+    padding-top: 30px;
+  }
+
+  .news__title {
+    margin-bottom: 25px;
+  }
+
+  .news__slider-container {
+    width: 300px;
+  }
+
+  .news__slide-offer {
+    height: auto;
+    padding: 20px;
+  }
+
+  .news__slide-date {
+    font-size: 10px;
+  }
+
+  .news__slide-link {
+    font-size: 13px;
+  }
+
+  .contacts__adress-list {
+    margin-top: 40px;
+  }
+
+  .contacts {
+    padding-bottom: 25px;
+  }
+
   .graph-modal__container {
     width: 320px;
-    padding: 40px 40px 50px 40px;
+    padding: 40px 40px 30px 40px;
   }
 
   .graph-modal__title {
@@ -14990,7 +15588,7 @@ html {
 
   .graph-modal__input-wrapper input,
   .graph-modal__input-wrapper textarea {
-    padding: 11px 10px 12px 50px;
+    padding: 11px 10px 12px 20px;
   }
 
   .graph-modal__input-wrapper {
@@ -14998,10 +15596,6 @@ html {
   }
 
   .graph-modal__input-date {
-    width: 115px;
-  }
-
-  .graph-modal__input-time {
     width: 115px;
   }
 }
