@@ -1,0 +1,112 @@
+// Intro
+[data-animate] {
+  opacity: 0;
+  transition: all 1.8s ease-out;
+}
+[data-animate="bottom"] {
+  transform: translate3d(0, 15px, 0);
+}
+.intro {
+  position: relative;
+  z-index: 0;
+  height: 640px;
+  top: 172px;
+  margin-bottom: 172px;
+  &__slider {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  &__slide {
+    padding: 100px 0;
+    @media (max-width: 575px) {
+      padding: 44px 0;
+    }
+  }
+  &__title {
+    margin-bottom: 45px;   
+  }
+  &__list {
+    @media (max-width: 991px) {
+      margin-bottom: 20px;
+    }
+  }
+  &__item {
+    font-weight: $medium;
+    font-size: 22px;
+    line-height: 24px;
+    color: $white;
+    position: relative;
+    padding-left: 40px;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+      @media (max-width: 991px) {
+        margin-bottom: 20px;
+      }
+    }
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+      display: block;
+      background-size: 21px 20px;
+      width: 24px;
+      height: 24px;
+      background: url('@img/intro/check-arrow.svg') no-repeat center center / cover;
+      margin-right: 15px;
+    }
+    @media (max-width: 1199px) {
+      font-size: 18px;
+    }
+    @media (max-width: 575px) {
+      font-size: 17px;
+      font-weight: $regular;
+      max-width: 260px;
+    }
+  }
+  &__pagination {
+    position: absolute;
+    width: 100%;
+    bottom: 125px;
+    @media (max-width: 575px) {
+      bottom: 55px;
+    }
+  }
+  @media (max-width: 991px) {
+    top: 82px;
+    margin-bottom: 82px;
+  }
+  @media (max-width: 575px) {
+    height: 540px;
+  }
+}
+.swiper-pagination {
+  position: relative;
+  bottom: unset!important; 
+  text-align: start;
+}
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.5);
+  width: 64px;
+  height: 2px;
+  transition: all 0.5s ease;
+  border-radius: 0px;
+  opacity: 1.0;
+  &-active {
+    height: 6px;
+  }
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+.intro__slide.swiper-slide-active [data-animate] {
+  opacity: 1;
+  transform: none;
+}
+
+
+
+
+
+
